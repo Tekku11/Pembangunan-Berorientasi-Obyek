@@ -1,0 +1,30 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class combo {
+    public static void main(String []args){
+        JFrame frame = new JFrame();
+        final JLabel lb = new JLabel("");
+        final String[] items = {" Roti "," Susu "};
+        final JComboBox comboBox = new JComboBox(items);
+        JPanel pn = new JPanel();
+        frame.add(pn, BorderLayout.WEST);
+        pn.add(comboBox, BorderLayout.CENTER);
+        pn.add(lb, BorderLayout.NORTH);
+        comboBox.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                String mn = (String) comboBox.getSelectedItem();
+                lb.setText(mn);
+            }
+        });
+        frame.setSize(200,200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+}
+}
